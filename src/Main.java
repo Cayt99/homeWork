@@ -1,6 +1,10 @@
 import Human.Gender;
 import Human.Human;
 import FamilyTree.FamilyTree;
+import utils.FileHandler;
+
+import java.util.List;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,5 +22,21 @@ public class Main {
         for (Human child : familyTree.findAllChildren(father)) {
             System.out.println(child.getName());
         }
+
+        List<Human> familyList = new ArrayList<>();
+        familyList.add(grandfather);
+        familyList.add(grandmother);
+        familyList.add(father);
+        familyList.add(mother);
+        familyList.add(child1);
+        familyList.add(child2);
+
+        FileHandler handler = new FileHandler();
+
+        // Сохраняем древо в файл
+        handler.writeToFile(familyList, "familyTree.dat");
+
+        // Загрузка древа из файла
+        List<Human> loadedFamily = handler.readFromFile("familyTree.dat");
     }
 }

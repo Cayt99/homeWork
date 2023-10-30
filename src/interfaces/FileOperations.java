@@ -1,6 +1,6 @@
 package interfaces;
 
-import Human.Human;
+import models.Human;
 import java.util.List;
 
 public interface FileOperations {

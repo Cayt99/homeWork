@@ -1,6 +1,6 @@
 package utils;
 
-import Human.Human;
+import models.Human;
 import interfaces.FileOperations;
 import java.io.*;
 import java.util.ArrayList;

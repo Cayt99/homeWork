@@ -2,8 +2,9 @@ package models;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Human {
+public class Human implements Serializable {
     private String name;
     private Gender gender;
     private String birthDate;
@@ -20,7 +21,7 @@ public class Human {
         this.children = new ArrayList<>();
     }
 
-    // Getters and setters
+    // Геттеры и сеттеры
 
     public void addChild(Human child) {
         this.children.add(child);
@@ -30,5 +31,10 @@ public class Human {
         return this.name;
     }
 
-    // Other methods
+    @Override
+    public String toString() {
+        return "Имя: " + name + ", Пол: " + (gender == Gender.MALE ? "Мужской" : "Женский") + ", Дата рождения: " + birthDate;
+    }
+
+
 }

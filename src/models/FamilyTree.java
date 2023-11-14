@@ -1,18 +1,25 @@
 package models;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ArrayList;
 
-public class FamilyTree implements Iterable<Human> {
-    private List<Human> members = new ArrayList<>();
+public class FamilyTree<T> implements Serializable, Iterable<T> {
+    private static final long serialVersionUID = 1L;
+    private List<T> members;
 
-    public void addMember(Human member) {
+    public FamilyTree() {
+        this.members = new ArrayList<>();
+    }
+
+    public void addMember(T member) {
         members.add(member);
     }
 
     @Override
-    public Iterator<Human> iterator() {
+    public Iterator<T> iterator() {
         return members.iterator();
     }
+
 }

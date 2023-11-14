@@ -1,18 +1,20 @@
-package utils;
+package io;
 
 import models.FamilyTree;
+
 import java.io.*;
 
-public class FileHandler implements FileOperations {
+public class FileHandler {
 
-    @Override
-    public void writeToFile(FamilyTree familyTree, String filename) {
-        // Реализация метода
+    public static <T> void saveFamilyTreeToFile(FamilyTree<T> familyTree, String filename) throws IOException {
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
+            out.writeObject(familyTree);
+        }
     }
 
-    @Override
-    public FamilyTree readFromFile(String filename) {
-        // Реализация метода
-        return null; // Это пример, необходимо возвращать реальный объект FamilyTree
+    public static <T> FamilyTree<T> loadFamilyTreeFromFile(String filename) throws IOException, ClassNotFoundException {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
+            return (FamilyTree<T>) in.readObject();
+        }
     }
 }

@@ -46,8 +46,8 @@ public class Main {
         System.out.println("Введите дату рождения (ГГГГ-ММ-ДД):");
         String birthDate = scanner.nextLine();
 
-
-        Human newMember = new Human(name, gender, birthDate, null, null);
+        // Измененный вызов конструктора
+        Human newMember = new Human(name, gender, birthDate);
         familyTree.addMember(newMember);
         System.out.println("Член семьи " + name + " успешно добавлен.");
     }

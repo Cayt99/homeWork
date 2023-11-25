@@ -17,7 +17,17 @@ public class FamilyTree implements Serializable {
     }
 
     public void addMember(Human member) {
-        members.add(member);
+        if (!members.contains(member)) {
+            members.add(member);
+        }
+    }
+
+    public boolean removeMember(Human member) {
+        return members.remove(member);
+    }
+
+    public boolean isMemberInTree(Human member) {
+        return members.contains(member);
     }
 
     public List<Human> getMembers() {
@@ -54,7 +64,6 @@ public class FamilyTree implements Serializable {
         }
         return descendants;
     }
-
 
     public void saveToFile(String filename) throws IOException {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {

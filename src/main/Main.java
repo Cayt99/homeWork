@@ -46,7 +46,6 @@ public class Main {
         System.out.println("Введите дату рождения (ГГГГ-ММ-ДД):");
         String birthDate = scanner.nextLine();
 
-        // Здесь можно добавить логику для ввода родителей, если требуется
 
         Human newMember = new Human(name, gender, birthDate, null, null);
         familyTree.addMember(newMember);

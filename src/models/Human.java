@@ -11,14 +11,14 @@ public class Human {
     private Human father;
     private List<Human> children = new ArrayList<>();
 
-    // Конструктор
+
     public Human(String name, Gender gender, String birthDate, Human mother, Human father) {
         this.name = name;
         this.gender = gender;
         this.birthDate = birthDate;
         this.mother = mother;
         this.father = father;
-        // Если у человека есть родители, добавляем его в их детей
+
         if (mother != null) {
             mother.addChild(this);
         }
@@ -27,7 +27,6 @@ public class Human {
         }
     }
 
-    // Геттеры и сеттеры
     public String getName() {
         return name;
     }
@@ -49,7 +48,7 @@ public class Human {
     }
 
     public List<Human> getChildren() {
-        return new ArrayList<>(children); // Возвращаем копию списка детей
+        return new ArrayList<>(children);
     }
 
     public void addChild(Human child) {
@@ -58,7 +57,6 @@ public class Human {
         }
     }
 
-    // Добавленный метод toString()
     @Override
     public String toString() {
         String info = "Имя: " + name + ", Пол: " + gender + ", Дата рождения: " + birthDate;
@@ -68,9 +66,8 @@ public class Human {
         if (father != null) {
             info += ", Отец: " + father.getName();
         }
-        // Добавление информации о детях, если это необходимо
+
         return info;
     }
 
-    // Другие методы...
 }
